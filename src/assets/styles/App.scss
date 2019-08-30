@@ -1,6 +1,12 @@
-$backgroundColor: cyan;
+@import "./Vars.scss";
+@import "./Media.scss";
 
 body {
   margin: 0;
-  background-color: $backgroundColor;
+  font-family: $theme-font;
+  background: $main-color;
+}
+
+* {
+  box-sizing: border-box;
 }
