@@ -5,8 +5,46 @@ body {
   margin: 0;
   font-family: $theme-font;
   background: $main-color;
+  overflow-x: hidden;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.empty_list {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 100px;
+  padding-top: 50px;
+  margin-left: 30px; 
+}
+
+body::-webkit-scrollbar {
+  width: 10px; /* Tamaño del scroll en vertical */
+  height: 8px; /* Tamaño del scroll en horizontal */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(57, 50, 71);
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgb(97, 86, 117);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background-color: rgb(97, 86, 117);
+}
+
+body::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-track:hover,
+body::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
 }

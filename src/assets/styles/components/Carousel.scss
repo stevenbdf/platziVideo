@@ -4,6 +4,7 @@
   padding-left: 30px;
   width: 100%;
   position: relative;
+  margin-bottom: 50px;
 }
 
 .carousel__container {
@@ -24,4 +25,33 @@
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
   opacity: 1;
+}
+
+.carousel::-webkit-scrollbar {
+  width: 8px; /* Tamaño del scroll en vertical */
+  height: 8px; /* Tamaño del scroll en horizontal */
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.carousel::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.carousel::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.carousel::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+.carousel::-webkit-scrollbar-track:hover,
+.carousel::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
 }
