@@ -1,17 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Search from '../components/Search'
 import Categories from '../components/Categories'
 import Carousel from '../components/Carousel'
 import CarouselItem from '../components/CarouselItem'
-import useInitialState from '../hooks/useInitialState'
 import '../assets/styles/containers/App.scss'
 
-const API = 'http://localhost:3000/initalState'
-
-const Home = () => {
-
-    let { mylist, trends, originals } = useInitialState(API)
-
+//Destructure from props
+const Home = ({ mylist, trends, originals }) => {
     return (
         <React.Fragment>
             <Search />
@@ -57,4 +53,13 @@ const Home = () => {
         </React.Fragment>
     )
 }
-export default Home
+
+const mapStateToProps = state => {
+    return {
+        myList: state.mylist,
+        trends: state.trends,
+        originals: state.originals
+    }
+}
+
+export default connect(mapStateToProps, null)(Home)
