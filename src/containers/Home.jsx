@@ -16,7 +16,11 @@ const Home = ({ mylist, trends, originals }) => {
                 <Categories title="Mi Lista">
                     {
                         mylist.length > 0 ?
-                            mylist.map(item => <CarouselItem key={item.id} {...item} />)
+                            (
+                                <Carousel>
+                                    {mylist.map(item => <CarouselItem key={item.id} {...item} />)}
+                                </Carousel>
+                            )
                             :
                             <h3 className="empty_list">Sin nada que mostrar :(</h3>
                     }
@@ -26,28 +30,32 @@ const Home = ({ mylist, trends, originals }) => {
             {
                 trends &&
                 <Categories title="Tendencias">
-                    <Carousel>
-                        {
-                            trends.length > 0 ?
-                                trends.map(item => <CarouselItem key={item.id} {...item} />)
-                                :
-                                <h3 className="empty_list">Sin nada que mostrar :(</h3>
-                        }
-                    </Carousel>
+                    {
+                        trends.length > 0 ?
+                            (
+                                <Carousel>
+                                    {trends.map(item => <CarouselItem key={item.id} {...item} />)}
+                                </Carousel>
+                            )
+                            :
+                            <h3 className="empty_list">Sin nada que mostrar :(</h3>
+                    }
                 </Categories>
             }
 
             {
                 originals &&
                 <Categories title="Originales de Platzi">
-                    <Carousel>
-                        {
-                            originals.length > 0 ?
-                                originals.map(item => <CarouselItem key={item.id} {...item} />)
-                                :
-                                <h3 className="empty_list">Sin nada que mostrar :(</h3>
-                        }
-                    </Carousel>
+                    {
+                        originals.length > 0 ?
+                            (
+                                <Carousel>
+                                    {originals.map(item => <CarouselItem key={item.id} {...item} />)}
+                                </Carousel>
+                            )
+                            :
+                            <h3 className="empty_list">Sin nada que mostrar :(</h3>
+                    }
                 </Categories>
             }
         </React.Fragment>
@@ -56,7 +64,7 @@ const Home = ({ mylist, trends, originals }) => {
 
 const mapStateToProps = state => {
     return {
-        myList: state.mylist,
+        mylist: state.mylist,
         trends: state.trends,
         originals: state.originals
     }
