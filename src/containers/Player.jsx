@@ -38,7 +38,7 @@ const Player = props => {
 
 const mapStateToProps = state => {
     return {
-        playing: state.playing
+        playing: state.rGeneral.playing
     }
 }
 

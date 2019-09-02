@@ -84,10 +84,10 @@ const Home = props => {
 
 const mapStateToProps = state => {
     return {
-        search: state.search,
-        mylist: state.mylist,
-        trends: state.trends,
-        originals: state.originals
+        search: state.rGeneral.search,
+        mylist: state.rFavorite.mylist,
+        trends: state.rGeneral.trends,
+        originals: state.rGeneral.originals
     }
 }
 

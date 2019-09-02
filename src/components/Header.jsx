@@ -65,8 +65,8 @@ Header.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        user: state.user,
-        path: state.path
+        user: state.rUser.user,
+        path: state.rGeneral.path
     }
 }
 
