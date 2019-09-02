@@ -28,6 +28,11 @@ export const getVideoSource = payload => ({
     payload
 })
 
+export const searchRequest = payload => ({
+    type: 'SEARCH_REQUEST',
+    payload
+})
+
 export const pathRequest = payload => ({
     type: 'PATH_REQUEST',
     payload

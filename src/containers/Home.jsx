@@ -9,13 +9,28 @@ import '../assets/styles/containers/App.scss'
 
 //Destructure from props
 const Home = props => {
-    const { mylist, trends, originals, location } = props
+    const { search, mylist, trends, originals, location } = props
 
     props.pathRequest(location.pathname)
 
     return (
         <React.Fragment>
             <Search isHome />
+            {
+                search &&
+                <Categories title="Busquedas">
+                    {
+                        search.length > 0 ?
+                            (
+                                <Carousel>
+                                    {search.map(item => <CarouselItem key={item.id} {...item} />)}
+                                </Carousel>
+                            )
+                            :
+                            <h3 className="empty_list">Sin nada que mostrar :(</h3>
+                    }
+                </Categories>
+            }
             {
                 mylist &&
                 <Categories title="Mi Lista">
@@ -69,6 +84,7 @@ const Home = props => {
 
 const mapStateToProps = state => {
     return {
+        search: state.search,
         mylist: state.mylist,
         trends: state.trends,
         originals: state.originals
