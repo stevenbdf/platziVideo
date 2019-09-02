@@ -176,14 +176,18 @@ const general = (state = initialState, action) => {
                 ...state,
                 playing: state.trends.find(item => item.id === Number(action.payload))
                     || state.originals.find(item => item.id === Number(action.payload))
-                    || []
+                    || null
             }
         case 'SEARCH_REQUEST':
-            let search = null
+            let search = null, { trends, originals } = state
+            
             if (action.payload) {
-                search = state.trends.filter(item => item.title.toLowerCase().includes(action.payload))
-                    || state.originals.filter(item => item.title.toLowerCase().includes(action.payload))
-                    || null
+                let trendsFilter = trends.filter(item => item.title.toLowerCase().includes(action.payload))
+                let originalsFilter = originals.filter(item => item.title.toLowerCase().includes(action.payload))
+
+                if (trendsFilter.length || originals.length) {
+                    search = trendsFilter.concat(originalsFilter)
+                }
             }
             return { ...state, search }
         default:
