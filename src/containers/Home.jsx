@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { pathRequest } from '../actions/index'
 import Search from '../components/Search'
 import Categories from '../components/Categories'
 import Carousel from '../components/Carousel'
@@ -7,7 +8,11 @@ import CarouselItem from '../components/CarouselItem'
 import '../assets/styles/containers/App.scss'
 
 //Destructure from props
-const Home = ({ mylist, trends, originals }) => {
+const Home = props => {
+    const { mylist, trends, originals, location } = props
+
+    props.pathRequest(location.pathname)
+
     return (
         <React.Fragment>
             <Search />
@@ -70,4 +75,8 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(Home)
+const mapDispatchToProps = {
+    pathRequest
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

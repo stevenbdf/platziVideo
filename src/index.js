@@ -7,6 +7,7 @@ import App from './routes/App'
 
 
 const initialState = {
+    "path": '',
     "user": {},
     "playing": {},
     "mylist": [],

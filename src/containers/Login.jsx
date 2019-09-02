@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { loginRequest } from '../actions'
+import { loginRequest, pathRequest } from '../actions/index'
 import googleIcon from '../assets/static/google-icon.png'
 import twitterIcon from '../assets/static/twitter-icon.png'
 import '../assets/styles/containers/Login.scss'
 
 const Login = props => {
+
+    props.pathRequest(props.location.pathname)
+    
     const [form, setForm] = useState({
         email: '',
 
@@ -67,7 +70,8 @@ const Login = props => {
 }
 
 const mapDispatchToProps = {
-    loginRequest
+    loginRequest,
+    pathRequest
 }
 
 export default connect(null, mapDispatchToProps)(Login)
