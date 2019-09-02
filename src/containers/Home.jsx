@@ -15,7 +15,7 @@ const Home = props => {
 
     return (
         <React.Fragment>
-            <Search />
+            <Search isHome />
             {
                 mylist &&
                 <Categories title="Mi Lista">

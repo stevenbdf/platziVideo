@@ -10,6 +10,7 @@
   "author": "Steven <stevenbdf@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "classnames": "^2.2.6",
     "global": "4.4.0",
     "json-server": "0.15.0",
     "md5": "^2.2.1",

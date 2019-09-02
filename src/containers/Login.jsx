@@ -9,7 +9,7 @@ import '../assets/styles/containers/Login.scss'
 const Login = props => {
 
     props.pathRequest(props.location.pathname)
-    
+
     const [form, setForm] = useState({
         email: '',
     })
@@ -50,8 +50,9 @@ const Login = props => {
                     <button className="button">Iniciar sesión</button>
                     <div className="login__container--remember-me">
                         <label>
-                            <input type="checkbox" id="cbox1" value="first_checkbox" />Recuérdame
-          </label>
+                            <input type="checkbox" id="cbox1" value="first_checkbox" />
+                            Recuérdame
+                        </label>
                         <a href="/">Olvidé mi contraseña</a>
                     </div>
                 </form>
@@ -60,8 +61,8 @@ const Login = props => {
                     <div><img src={twitterIcon} /> Inicia sesión con Twitter</div>
                 </section>
                 <p className="login__container--register">
-                    No tienes ninguna cuenta
-                <Link to="/register">Regístrate</Link>
+                    No tienes ninguna cuenta {' '}
+                    <Link to="/register">Regístrate</Link>
                 </p>
             </section>
         </section>
