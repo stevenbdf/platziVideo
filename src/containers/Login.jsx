@@ -12,7 +12,6 @@ const Login = props => {
     
     const [form, setForm] = useState({
         email: '',
-
     })
 
     const handleChange = event => {

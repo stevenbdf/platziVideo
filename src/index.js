@@ -9,7 +9,7 @@ import App from './routes/App'
 const initialState = {
     "path": '',
     "user": {},
-    "playing": {},
+    "playing": null,
     "mylist": [],
     "trends": [
         {

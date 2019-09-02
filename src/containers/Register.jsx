@@ -1,19 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { pathRequest } from '../actions'
+import { registerRequest, pathRequest } from '../actions'
 import '../assets/styles/containers/Register.scss'
 
 const Register = props => {
+    const [form, setForm] = useState({
+        email: '',
+        name: '',
+        password: ''
+    })
+
+    const handleChange = event => {
+        const { name, value } = event.target
+        setForm({
+            ...form,
+            [name]: value
+        })
+    }
+
+    const handleSubmit = event => {
+        event.preventDefault()
+        props.registerRequest(form)
+        props.history.push('/')
+    }
+
     props.pathRequest(props.location.pathname)
+
     return (
         <section className="register">
             <section className="register__container">
                 <h2>Regístrate</h2>
-                <form className="register__container--form">
-                    <input className="input" type="text" placeholder="Nombre" />
-                    <input className="input" type="text" placeholder="Correo" />
-                    <input className="input" type="password" placeholder="Contraseña" />
+                <form className="register__container--form" onSubmit={handleSubmit}>
+                    <input
+                        name="name" 
+                        className="input"
+                        type="text"
+                        placeholder="Nombre"
+                        onChange={handleChange}
+                        />
+                    <input
+                        name="email" 
+                        className="input"
+                        type="text"
+                        placeholder="Correo"
+                        onChange={handleChange}
+                        />
+                    <input
+                        name="password" 
+                        className="input"
+                        type="password"
+                        placeholder="Contraseña"
+                        onChange={handleChange}
+                        />
                     <button className="button">Registrarme</button>
                 </form>
                 <Link to="/login">Iniciar sesión</Link>
@@ -23,6 +62,7 @@ const Register = props => {
 }
 
 const mapDispatchToProps = {
+    registerRequest,
     pathRequest
 }
 

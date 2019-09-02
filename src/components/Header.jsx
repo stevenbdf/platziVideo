@@ -35,7 +35,7 @@ const Header = props => {
                 <div className="header__menu--profile">
                     {
                         hasUser ?
-                            <img src={gravatar(user.email)} alt={user.email} />
+                            <img src={gravatar(user.email)} alt={user.name} />
                             :
                             <img src={userIcon} alt="Icono de usuario" />
                     }
@@ -43,12 +43,12 @@ const Header = props => {
                 </div>
                 <ul>
                     {
-                        hasUser && <li><a href="/">{user.email}</a></li>
+                        hasUser && <li><a href="/">{user.name}</a></li>
                     }
                     {
 
                         hasUser ?
-                            <li><Link onClick={handleLogout}>Cerrar Sesión</Link></li>
+                            <li><a onClick={handleLogout}>Cerrar Sesión</a></li>
                             :
                             <li><Link to="/login">Iniciar Sesión</Link></li>
                     }
